@@ -12,7 +12,8 @@
                 font-size: 14px;
                 padding: 12px 32px;
             }
-            input::placeholder {
+            input::placeholder,
+            textarea::placeholder {
                 color: #dbdbdb;
             }
             .header {
@@ -36,7 +37,7 @@
                 color: #303030;
                 font-weight: 600;
             }
-            .section-title.active::after {
+            .section-title.active::before {
                 content: '';
                 position: absolute;
                 top: 30px;
@@ -52,21 +53,43 @@
             .form-content {
                 display: none;
             }
+            #job-details,
+            #emergency {
+                align-items: flex-start;
+            }
+            #personal {
+                flex-direction: row;
+                justify-content: space-between;
+            }
             .form-content.active {
                 display: flex;
-                flex-direction: row;
-                gap: 124px;
+                flex-direction: column;
+                gap: 24px;
                 margin-top: 36px;
+            }
+            .add-new-container {
+                display: flex;
+                flex-direction: row;
+                gap: 24px;
+                border: 1px solid #CECECE;
+                border-radius: 18px;
+                padding: 32px 0px;
+                position: relative;
+            }
+            .add-new-container .input-container {
+                width: 100%;
             }
             .input-container-title,
             .input-container {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                align-items: center;
                 gap: 24px;
-                justify-content: space-evenly;
+                justify-content: space-around;
                 position: relative;
             }
             input[type="text"],
+            textarea,
             input[type="date"],
             select {
                 outline: none;
@@ -76,6 +99,9 @@
                 width: 265px;
                 box-sizing: unset;
                 font-family: 'Poppins';
+            }
+            textarea {
+                resize: none;
             }
             .footer {
                 margin-top: 36px;
@@ -105,6 +131,7 @@
                 display: flex;
                 align-items: center;
                 gap: 6px;
+                position: relative;
             }
             .error-indicator svg {
                 display: none;
@@ -117,10 +144,217 @@
             .section-right,
             .section-left {
                 display: flex;
-                gap: 124px;
+                gap: 24px;
+                flex-direction: column;
+                width: 100%;
             }
             .error {
                 border: 1px solid #FE000A !important;
+            }
+            .remove-container-btn {
+                position: absolute;
+                bottom: -18px;
+                right: 146px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                background: #fff;
+                padding: 6px 10px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 8px 0px rgba(197, 197, 197, 0.25);
+            }
+            .add-container-btn {
+                position: absolute;
+                bottom: -18px;
+                right: 17px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                background: #fff;
+                padding: 6px 10px;
+                border-radius: 8px;
+                box-shadow: 0px 4px 8px 0px rgba(197, 197, 197, 0.25);
+            }
+            .remove-container-btn span {
+                color: #E41321;
+            }
+            #qualifications,
+            #experience,
+            #reference,
+            #questionnaire,
+            #declaration {
+                flex-direction: column;
+                gap: 38px;
+            }
+            .warning-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: #FFEFC7;
+                padding: 6px 12px;
+                border-radius: 6px;
+            }
+            .warning-wrapper span {
+                color: #FF961A;
+                font-size: 12px;
+            }
+            .input-container span {
+                min-width: 145px;
+                max-width: 145px;
+            }
+            .questions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .radio-btn-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                border: 1px solid #CECECE;
+                border-radius: 18px;
+                padding: 16px;
+            }
+            input[type="radio" i] {
+                margin: 0;
+            }
+            .option-wrap {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .options {
+                display: flex;
+                align-items: center;
+                gap: 40px;
+            }
+            .declaration-radio-btn-wrapper {
+                margin: 10px 0px;
+            }
+            .answer-yes-dec {
+                display: none;
+            }
+            .answer-yes-dec.active {
+                display: block;
+            }
+            .agree-terms {
+                display: flex;
+                gap: 12px;
+            }
+            .agree-terms span {
+                font-weight: 600;
+            }
+            .title-container {
+                position: relative;
+            }
+            .absolute-font {
+                padding: 0px 10px;
+                background: #fff;
+                position: absolute;
+                left: 15px;
+                top: -11px;
+            }
+            #questionnaire textarea,
+            #declaration textarea {
+                width: -webkit-fill-available;
+            }
+            /* Mobile Styling */
+            @media (max-width: 768px) {
+                html, body {
+                    height: 100%;
+                    overflow: auto;
+                }
+                .form-sections {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                    overflow: -moz-scrollbars-none;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .form-sections::-webkit-scrollbar {
+                    display: none;
+                }
+                .header-title {
+                    font-size: 12px;
+                }
+                .header img {
+                    height: 50px;
+                }
+                .form-sections {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                }
+                #job-details,
+                #emergency {
+                    align-items: unset;
+                }
+                .form-content.active,
+                .section-right, 
+                .section-left {
+                    width: 100%;
+                    flex-direction: column;
+                    gap: 18px;
+                    /* align-items: unset; */
+                }
+                .section-title {
+                    white-space: nowrap;
+                }
+                input[type="text"],
+                textarea,
+                input[type="date"],
+                select {
+                    width: 100%;
+                }
+                .input-container-title, .input-container {
+                    gap: 12px;
+                    flex-direction: column;
+                    align-items: unset;
+                }
+                #questionnaire .options {
+                    justify-content: center;
+                }
+                .add-new-container {
+                    padding: 32px;
+                }
+                #personal {
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                .add-new-container {
+                    flex-direction: column;
+                }
+            }
+
+            @media (max-width: 900px) {
+                html, body {
+                    height: 100%;
+                    overflow: auto;
+                }
+                .form-sections {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                    overflow: -moz-scrollbars-none;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .form-sections::-webkit-scrollbar {
+                    display: none;
+                }
+                .form-sections {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                }
+                .section-title {
+                    white-space: nowrap;
+                }
+                #personal {
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+                .add-new-container {
+                    flex-direction: column;
+                }
             }
         </style>
     </head>
@@ -137,7 +371,7 @@
                 <div class="section-title" section-id="personal">Personal</div>
                 <div class="section-title" section-id="qualifications">Qualifications</div>
                 <div class="section-title" section-id="experience">Experience</div>
-                <div class="section-title" section-id="emergency">Emergency</div>
+                <div class="section-title" section-id="emergency">Emergency Contact</div>
                 <div class="section-title" section-id="reference">Reference</div>
                 <div class="section-title" section-id="questionnaire">Questionnaires</div>
                 <div class="section-title" section-id="declaration">Declaration</div>
@@ -146,11 +380,8 @@
         </div>
 
         <section class="form-content active" id="job-details">
-            <div class="input-container-title">
-                <span>Position</span>
-                <span>Mode of Application</span>
-            </div>
             <div class="input-container">
+                <span>Position</span>
                 <div class="error-indicator">
                     <input type="text" id="position">
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,22 +390,24 @@
                         </g>
                     </svg>
                 </div>
-                <input type="text" id="mode-of-appl">
+            </div>
+            <div class="input-container">
+                <span>Mode of Application</span>
+                <div class="error-indicator">
+                    <input type="text" id="mode-of-appl">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="ep:warning">
+                            <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </section>
 
         <section class="form-content" id="personal">
             <div class="section-left">
-                <div class="input-container-title">
+                <div class="input-container" id="applicant-name">
                     <span>Name</span>
-                    <span>Address</span>
-                    <span>Address 2</span>
-                    <span>Date of Birth</span>
-                    <span>Race</span>
-                    <span>Marital Status</span>
-                    <span>Current Salary</span>
-                </div>
-                <div class="input-container">
                     <div class="error-indicator">
                         <input type="text" id="name" placeholder="Your Full Name">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,6 +416,20 @@
                             </g>
                         </svg>
                     </div>
+                </div>
+                <div class="input-container" id="applicant-gender">
+                    <span>Gender</span>
+                    <div class="error-indicator">
+                        <select class="option-selector" id="gender">
+                            <option value="" selected disabled>Your Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-add">
+                    <span>Address</span>
                     <div class="error-indicator">
                         <input type="text" id="address-1" placeholder="Your Address">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -191,6 +438,9 @@
                             </g>
                         </svg>
                     </div>
+                </div>
+                <div class="input-container" id="applicant-add-2">
+                    <span>Address 2</span>
                     <div class="error-indicator">
                         <input type="text" id="address-2" placeholder="Your Address (optional)">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,9 +449,50 @@
                             </g>
                         </svg>
                     </div>
+                </div>
+                <div class="input-container" id="applicant-email">
+                    <span>Email</span>
+                    <div class="error-indicator">
+                        <input type="text" id="email" placeholder="Your Email Address">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="ep:warning">
+                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-nric">
+                    <span>NRIC No</span>
+                    <div class="error-indicator">
+                        <input type="text" id="nric" placeholder="Your NRIC Number">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="ep:warning">
+                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-dob">
+                    <span>Date of Birth</span>
                     <div class="error-indicator">
                         <input type="date" id="dob" placeholder="Your Date of Birth">
                     </div>
+                </div>
+            </div>
+            <div class="section-right">
+                <div class="input-container" id="applicant-citizenship">
+                    <span>Citizenship</span>
+                    <div class="error-indicator">
+                        <input type="text" id="citizenship" placeholder="Your Citizenship">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="ep:warning">
+                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-race">
+                    <span>Race</span>
                     <div class="error-indicator">
                         <select class="option-selector" id="race">
                             <option value="" selected disabled>Your Race</option>
@@ -210,6 +501,20 @@
                             <option value="indian">India</option>
                         </select>
                     </div>
+                </div>
+                <div class="input-container" id="applicant-phone">
+                    <span>H/Phone</span>
+                    <div class="error-indicator">
+                        <input type="text" id="phone" placeholder="Your Phone Number">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="ep:warning">
+                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-marital-status">
+                    <span>Marital Status</span>
                     <div class="error-indicator">
                         <select class="option-selector" id="marital-status">
                             <option value="" selected disabled>Your Marital Status</option>
@@ -220,67 +525,9 @@
                             <option value="divorced">Divorced</option>
                         </select>
                     </div>
-                    <div class="error-indicator">
-                        <input type="text" id="current-salary" placeholder="Your Current Salary">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="ep:warning">
-                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
-                            </g>
-                        </svg>
-                    </div>
                 </div>
-            </div>
-            <div class="section-right">
-                <div class="input-container-title">
-                    <span>Gender</span>
-                    <span>Email</span>
-                    <span>NRIC No</span>
-                    <span>Citizenship</span>
-                    <span>H/Phone</span>
+                <div class="input-container" id="applicant-license">
                     <span>Driving License</span>
-                    <span>Expected Salary</span>
-                </div>
-                <div class="input-container">
-                    <div class="error-indicator">
-                        <select class="option-selector" id="gender">
-                            <option value="" selected disabled>Your Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Others</option>
-                        </select>
-                    </div>
-                    <div class="error-indicator">
-                        <input type="text" id="email" placeholder="Your Email Address">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="ep:warning">
-                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="error-indicator">
-                        <input type="text" id="nric" placeholder="Your NRIC Number">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="ep:warning">
-                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="error-indicator">
-                        <input type="text" id="citizenship" placeholder="Your Citizenship">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="ep:warning">
-                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="error-indicator">
-                        <input type="text" id="phone" placeholder="Your Phone Number">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="ep:warning">
-                                <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
-                            </g>
-                        </svg>
-                    </div>
                     <div class="error-indicator">
                         <input type="text" id="license" placeholder="Your Driving License">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -289,6 +536,15 @@
                             </g>
                         </svg>
                     </div>
+                </div>
+                <div class="input-container" id="applicant-current-salary">
+                    <span>Current Salary</span>
+                    <div class="error-indicator">
+                        <input type="text" id="current-salary" placeholder="Your Current Salary">
+                    </div>
+                </div>
+                <div class="input-container" id="applicant-expected-salary">
+                    <span>Expected Salary</span>
                     <div class="error-indicator">
                         <input type="text" id="expected-salary" placeholder="Your Expected Salary">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -302,27 +558,624 @@
         </section>
 
         <section class="form-content" id="qualifications">
-            <span>qualifications</span>
+            <div class="add-new-container" id="cmqcesnvi">
+                <div class="section-left">
+                    <div class="input-container" id="applicant-edu-period">
+                        <span>Period</span>
+                        <div class="error-indicator">
+                            <input type="text" id="period" placeholder="Your Educational Period">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-edu-school">
+                        <span>School/College/University Last Attended</span>
+                        <div class="error-indicator">
+                            <input type="text" id="school" placeholder="Your School/College/University Last Attended">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right">
+                    <div class="input-container" id="applicant-edu-stream">
+                        <span>Language Stream</span>
+                        <div class="error-indicator">
+                            <input type="text" id="language-stream" placeholder="Your Language Stream">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-highest-standard">
+                        <span>Highest Standard</span>
+                        <div class="error-indicator">
+                            <input type="text" id="highest-standard" placeholder="Your Highest Standard">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-container-btn">       
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="ic:round-add">
+                            <path id="Vector" d="M18 13H13V18C13 18.55 12.55 19 12 19C11.45 19 11 18.55 11 18V13H6C5.45 13 5 12.55 5 12C5 11.45 5.45 11 6 11H11V6C11 5.45 11.45 5 12 5C12.55 5 13 5.45 13 6V11H18C18.55 11 19 11.45 19 12C19 12.55 18.55 13 18 13Z" fill="#303030"/>
+                        </g>
+                    </svg>    
+                    <span>Add New</span>
+                </div>
+            </div>
         </section>
 
         <section class="form-content" id="experience">
-            <span>experience</span>
+            <div class="warning-wrapper">
+                <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 0.5C13.7848 0.5 16.4555 1.60625 18.4246 3.57538C20.3938 5.54451 21.5 8.21523 21.5 11C21.5 13.7848 20.3938 16.4555 18.4246 18.4246C16.4555 20.3938 13.7848 21.5 11 21.5C8.21523 21.5 5.54451 20.3938 3.57538 18.4246C1.60625 16.4555 0.5 13.7848 0.5 11C0.5 8.21523 1.60625 5.54451 3.57538 3.57538C5.54451 1.60625 8.21523 0.5 11 0.5ZM11 20C13.3869 20 15.6761 19.0518 17.364 17.364C19.0518 15.6761 20 13.3869 20 11C20 8.61305 19.0518 6.32387 17.364 4.63604C15.6761 2.94821 13.3869 2 11 2C8.61305 2 6.32387 2.94821 4.63604 4.63604C2.94821 6.32387 2 8.61305 2 11C2 13.3869 2.94821 15.6761 4.63604 17.364C6.32387 19.0518 8.61305 20 11 20ZM12.125 15.875C12.125 16.1734 12.0065 16.4595 11.7955 16.6705C11.5845 16.8815 11.2984 17 11 17C10.7016 17 10.4155 16.8815 10.2045 16.6705C9.99353 16.4595 9.875 16.1734 9.875 15.875C9.875 15.5766 9.99353 15.2905 10.2045 15.0795C10.4155 14.8685 10.7016 14.75 11 14.75C11.2984 14.75 11.5845 14.8685 11.7955 15.0795C12.0065 15.2905 12.125 15.5766 12.125 15.875ZM11 5C11.1989 5 11.3897 5.07902 11.5303 5.21967C11.671 5.36032 11.75 5.55109 11.75 5.75V12.5C11.75 12.6989 11.671 12.8897 11.5303 13.0303C11.3897 13.171 11.1989 13.25 11 13.25C10.8011 13.25 10.6103 13.171 10.4697 13.0303C10.329 12.8897 10.25 12.6989 10.25 12.5V5.75C10.25 5.55109 10.329 5.36032 10.4697 5.21967C10.6103 5.07902 10.8011 5 11 5Z" fill="#FF961A"/>
+                </svg>
+                <span class="warning-caption">Your last 2 employment history</span>
+            </div>
+            <div class="add-new-container" id="applicant-exp-1">
+                <div class="section-left">
+                    <div class="input-container" id="applicant-exp-period">
+                        <span>Period</span>
+                        <div class="error-indicator">
+                            <input type="text" id="employment-period" placeholder="Period">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-employer-name">
+                        <span>Name of Employer</span>
+                        <div class="error-indicator">
+                            <input type="text" id="name-of-employer" placeholder="Name of Employer">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-reson-for-leaving">
+                        <span>Reason for Leaving</span>
+                        <div class="error-indicator">
+                            <textarea id="reason-for-leaving" rows="5" placeholder="Reason for leaving"></textarea>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right">
+                    <div class="input-container" id="applicant-exp-position">
+                        <span>Position</span>
+                        <div class="error-indicator">
+                            <input type="text" id="position" placeholder="Position">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-salary">
+                        <span>Salary</span>
+                        <div class="error-indicator">
+                            <input type="text" id="salary" placeholder="Salary">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-new-container" id="applicant-exp-2">
+                <div class="section-left">
+                    <div class="input-container" id="applicant-exp-period">
+                        <span>Period</span>
+                        <div class="error-indicator">
+                            <input type="text" id="employment-period" placeholder="Period">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-employer-name">
+                        <span>Name of Employer</span>
+                        <div class="error-indicator">
+                            <input type="text" id="name-of-employer" placeholder="Name of Employer">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-reson-for-leaving">
+                        <span>Reason for Leaving</span>
+                        <div class="error-indicator">
+                            <textarea id="reason-for-leaving" rows="5" placeholder="Reason for leaving"></textarea>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right">
+                    <div class="input-container" id="applicant-exp-position">
+                        <span>Position</span>
+                        <div class="error-indicator">
+                            <input type="text" id="position" placeholder="Position">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-exp-salary">
+                        <span>Salary</span>
+                        <div class="error-indicator">
+                            <input type="text" id="salary" placeholder="Salary">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="form-content" id="emergency">
-            <span>emergency</span>
+            <div class="input-container" id="emergency-contact-fullname">
+                <span>Name</span>
+                <div class="error-indicator">
+                    <input type="text" id="emergency-name" placeholder="Full Name">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="ep:warning">
+                            <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="input-container" id="emergency-contact-relationship">
+                <span>Relationship</span>
+                <div class="error-indicator">
+                    <input type="text" id="emergency-relationship" placeholder="Relationship">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="ep:warning">
+                            <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="input-container" id="emergency-contact-num">
+                <span>Contact Number</span>
+                <div class="error-indicator">
+                    <input type="text" id="emergency-contact-number" placeholder="Contact Number">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="ep:warning">
+                            <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
         </section>
 
         <section class="form-content" id="reference">
-            <span>reference</span>
+            <div class="warning-wrapper">
+                <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 0.5C13.7848 0.5 16.4555 1.60625 18.4246 3.57538C20.3938 5.54451 21.5 8.21523 21.5 11C21.5 13.7848 20.3938 16.4555 18.4246 18.4246C16.4555 20.3938 13.7848 21.5 11 21.5C8.21523 21.5 5.54451 20.3938 3.57538 18.4246C1.60625 16.4555 0.5 13.7848 0.5 11C0.5 8.21523 1.60625 5.54451 3.57538 3.57538C5.54451 1.60625 8.21523 0.5 11 0.5ZM11 20C13.3869 20 15.6761 19.0518 17.364 17.364C19.0518 15.6761 20 13.3869 20 11C20 8.61305 19.0518 6.32387 17.364 4.63604C15.6761 2.94821 13.3869 2 11 2C8.61305 2 6.32387 2.94821 4.63604 4.63604C2.94821 6.32387 2 8.61305 2 11C2 13.3869 2.94821 15.6761 4.63604 17.364C6.32387 19.0518 8.61305 20 11 20ZM12.125 15.875C12.125 16.1734 12.0065 16.4595 11.7955 16.6705C11.5845 16.8815 11.2984 17 11 17C10.7016 17 10.4155 16.8815 10.2045 16.6705C9.99353 16.4595 9.875 16.1734 9.875 15.875C9.875 15.5766 9.99353 15.2905 10.2045 15.0795C10.4155 14.8685 10.7016 14.75 11 14.75C11.2984 14.75 11.5845 14.8685 11.7955 15.0795C12.0065 15.2905 12.125 15.5766 12.125 15.875ZM11 5C11.1989 5 11.3897 5.07902 11.5303 5.21967C11.671 5.36032 11.75 5.55109 11.75 5.75V12.5C11.75 12.6989 11.671 12.8897 11.5303 13.0303C11.3897 13.171 11.1989 13.25 11 13.25C10.8011 13.25 10.6103 13.171 10.4697 13.0303C10.329 12.8897 10.25 12.6989 10.25 12.5V5.75C10.25 5.55109 10.329 5.36032 10.4697 5.21967C10.6103 5.07902 10.8011 5 11 5Z" fill="#FF961A"/>
+                </svg>
+                <span class="warning-caption">Referees who are not related to & whom you have known for at least 2 years</span>
+            </div>
+            <div class="add-new-container" id="referee-1">
+                <div class="section-left">
+                    <div class="input-container" id="referee-name">
+                        <span>Name of Referee</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-name" placeholder="Name of Referee">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-occupation">
+                        <span>Occupation</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-occupation" placeholder="Occupation">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-years-known">
+                        <span>Years Known</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-years-known" placeholder="Years Known">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right">
+                    <div class="input-container" id="referee-company">
+                        <span>Name of Company</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-company" placeholder="Name of Company">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-contact">
+                        <span>Contact Number</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-num" placeholder="Referee Contact Number">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="add-new-container" id="referee-2">
+                <div class="section-left">
+                    <div class="input-container" id="referee-name">
+                        <span>Name of Referee</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-name" placeholder="Name of Referee">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-occupation">
+                        <span>Occupation</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-occupation" placeholder="Occupation">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-years-known">
+                        <span>Years Known</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-years-known" placeholder="Years Known">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-right">
+                    <div class="input-container" id="referee-company">
+                        <span>Name of Company</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-company" placeholder="Name of Company">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="referee-contact">
+                        <span>Contact Number</span>
+                        <div class="error-indicator">
+                            <input type="text" id="referee-num" placeholder="Referee Contact Number">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="form-content" id="questionnaire">
-            <span>questionnaire</span>
+            <div class="questions" id="question-1">
+                <span class="question">What is your greatest achievement?</span>
+                <textarea id="answer" rows="5" placeholder="What is your greatest achievement"></textarea>
+            </div>
+            <div class="questions" id="question-2">
+                <span class="question">What are your strengths & weaknesses?</span>
+                <div class="title-container">
+                    <span class="absolute-font">Strengths</span>
+                    <textarea id="answer-strengths" rows="5"></textarea>
+                </div>
+                <div class="title-container">
+                    <span class="absolute-font">Weakness</span>
+                    <textarea id="answer-weakness" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="questions" id="question-3">
+                <span class="question">How would your employer describe you?</span>
+                <textarea id="answer-strengths" rows="5" placeholder="How would your employer describe you"></textarea>
+            </div>
+            <div class="questions" id="question-4">
+                <span class="question">For each of the characteristics below, rate from a scale of 1 - 4, 1 being least and 4 being most that
+                    resembles you.
+                </span>
+                <div class="radio-btn-wrapper" id="radio-btn-option-1">
+                    <span>Open-minded, Receptive to ideas of others, Compliant</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-1" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-1" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-1" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-1" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-2">
+                    <span>Cheerful, Jovial, Good natured, Pleasant</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-2" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-2" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-2" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-2" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-3">
+                    <span>Patient, Calm, Tolerant, Reserved</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-3" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-3" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-3" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-3" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-4">
+                    <span>Well-disciplined, Self-controlled, Optimistic, Positive</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-4" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-4" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-4" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-4" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-5">
+                    <span>Generous, Ready to help, Considerate</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-5" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-5" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-5" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-5" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-6">
+                    <span>Assertive, Aggressive, Determined, Cautious</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-6" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-6" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-6" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-6" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-7">
+                    <span>Pioneering, Exploring, Enterprising, Competitive</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-7" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-7" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-7" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-7" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="radio-btn-wrapper" id="radio-btn-option-8">
+                    <span>Outgoing, Fun loving, Enjoy social group</span>
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="ques-8" value="1">
+                            <span>1</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="ques-8" value="2">
+                            <span>2</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-3" name="ques-8" value="3">
+                            <span>3</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-4" name="ques-8" value="4">
+                            <span>4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section class="form-content" id="declaration">
-            <span>declaration</span>
+            <div class="declaration-wrap" id="declaration-1">
+                <span>Have you ever suffered or suffering from any medical condition (s), illness or physical impairment which may
+                    limit work performance and/or attendance?
+                </span>
+                <div class="declaration-radio-btn-wrapper" id="radio-btn-dec-1">
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="dec-1" value="no">
+                            <span>No</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="dec-1" value="yes">
+                            <span>Yes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-yes-dec" id="yes-declaration-1">
+                    <textarea id="declaration-ans" rows="5" placeholder="Kindly furnish details"></textarea>
+                </div>
+            </div>
+            <div class="declaration-wrap" id="declaration-2">
+                <span>Have you ever been convicted in court of law or received any writ of summons?</span>
+                <div class="declaration-radio-btn-wrapper" id="radio-btn-dec-2">
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="dec-2" value="no">
+                            <span>No</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="dec-2" value="yes">
+                            <span>Yes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-yes-dec" id="yes-declaration-1">
+                    <textarea id="declaration-ans" rows="5" placeholder="Kindly furnish details"></textarea>
+                </div>
+            </div>
+            <div class="declaration-wrap" id="declaration-3">
+                <span>Have you had any personal involvement in any business undertaken, eg; directorship, partnership, etc</span>
+                <div class="declaration-radio-btn-wrapper" id="radio-btn-dec-2">
+                    <div class="options">
+                        <div class="option-wrap">
+                            <input type="radio" id="option-1" name="dec-3" value="no">
+                            <span>No</span>
+                        </div>
+                        <div class="option-wrap">
+                            <input type="radio" id="option-2" name="dec-3" value="yes">
+                            <span>Yes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="answer-yes-dec" id="yes-declaration-1">
+                    <textarea id="declaration-ans" rows="5" placeholder="Kindly furnish details"></textarea>
+                </div>
+            </div>
+            <div class="bottom-line"></div>
+            <div class="agree-terms">
+                <input type="checkbox" id="agree-terms" value="yes">
+                <span>I hereby declare that all information given in this application for employment is true & correct. I
+                    acknowledge & agree that any false declaration, answer or statement made by me on this application or any
+                    supplement thereto, will render me disqualified and/or will be sufficient grounds for immediate dismissal.
+                </span>
+            </div>
         </section>
 
         <div class="footer">
@@ -333,9 +1186,11 @@
                 </svg>
             </div>
         </div>
-
+        <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
+            var custom_id = Math.random().toString(36).substr(2, 9);
+
             $(window).on('beforeunload', function() {
                 return 'Are you sure you want to leave?';
             });
@@ -365,6 +1220,93 @@
                     validateForm()
                 }
             })
+
+            $(document).on("click", ".add-container-btn", function(){
+                var new_div = `<div class="add-new-container" id="`+custom_id+`">
+                    <div class="section-left">
+                    <div class="input-container" id="applicant-edu-period">
+                        <span>Period</span>
+                        <div class="error-indicator">
+                            <input type="text" id="period" placeholder="Your Educational Period">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-edu-school">
+                        <span>School/College/University Last Attended</span>
+                        <div class="error-indicator">
+                            <input type="text" id="school" placeholder="Your School/College/University Last Attended">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="section-right">
+                    <div class="input-container" id="applicant-edu-stream">
+                        <span>Language Stream</span>
+                        <div class="error-indicator">
+                            <input type="text" id="language-stream" placeholder="Your Language Stream">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="input-container" id="applicant-highest-standard">
+                        <span>Highest Standard</span>
+                        <div class="error-indicator">
+                            <input type="text" id="highest-standard" placeholder="Your Highest Standard">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="ep:warning">
+                                    <path id="Vector" d="M9 1.125C6.91142 1.125 4.90838 1.95469 3.43153 3.43153C1.95469 4.90838 1.125 6.91142 1.125 9C1.125 11.0886 1.95469 13.0916 3.43153 14.5685C4.90838 16.0453 6.91142 16.875 9 16.875C11.0886 16.875 13.0916 16.0453 14.5685 14.5685C16.0453 13.0916 16.875 11.0886 16.875 9C16.875 6.91142 16.0453 4.90838 14.5685 3.43153C13.0916 1.95469 11.0886 1.125 9 1.125ZM9 15.75C7.20979 15.75 5.4929 15.0388 4.22703 13.773C2.96116 12.5071 2.25 10.7902 2.25 9C2.25 7.20979 2.96116 5.4929 4.22703 4.22703C5.4929 2.96116 7.20979 2.25 9 2.25C10.7902 2.25 12.5071 2.96116 13.773 4.22703C15.0388 5.4929 15.75 7.20979 15.75 9C15.75 10.7902 15.0388 12.5071 13.773 13.773C12.5071 15.0388 10.7902 15.75 9 15.75ZM8.15625 12.6562C8.15625 12.88 8.24515 13.0946 8.40338 13.2529C8.56161 13.4111 8.77622 13.5 9 13.5C9.22378 13.5 9.43839 13.4111 9.59662 13.2529C9.75486 13.0946 9.84375 12.88 9.84375 12.6562C9.84375 12.4325 9.75486 12.2179 9.59662 12.0596C9.43839 11.9014 9.22378 11.8125 9 11.8125C8.77622 11.8125 8.56161 11.9014 8.40338 12.0596C8.24515 12.2179 8.15625 12.4325 8.15625 12.6562ZM9 4.5C8.85082 4.5 8.70774 4.55926 8.60225 4.66475C8.49676 4.77024 8.4375 4.91332 8.4375 5.0625V10.125C8.4375 10.2742 8.49676 10.4173 8.60225 10.5227C8.70774 10.6282 8.85082 10.6875 9 10.6875C9.14918 10.6875 9.29226 10.6282 9.39775 10.5227C9.50324 10.4173 9.5625 10.2742 9.5625 10.125V5.0625C9.5625 4.91332 9.50324 4.77024 9.39775 4.66475C9.29226 4.55926 9.14918 4.5 9 4.5Z" fill="#FE000A"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="remove-container-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="pajamas:remove">
+                                <path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M5.75 3V1.5H10.25V3H5.75ZM4.25 3V1C4.25 0.734784 4.35536 0.48043 4.54289 0.292893C4.73043 0.105357 4.98478 0 5.25 0L10.75 0C11.0152 0 11.2696 0.105357 11.4571 0.292893C11.6446 0.48043 11.75 0.734784 11.75 1V3H14.25C14.4489 3 14.6397 3.07902 14.7803 3.21967C14.921 3.36032 15 3.55109 15 3.75C15 3.94891 14.921 4.13968 14.7803 4.28033C14.6397 4.42098 14.4489 4.5 14.25 4.5H13.885L13.142 14.153C13.1035 14.6554 12.8767 15.1248 12.507 15.4673C12.1373 15.8097 11.6519 16 11.148 16H4.852C4.34808 16 3.86274 15.8097 3.49304 15.4673C3.12335 15.1248 2.89655 14.6554 2.858 14.153L2.115 4.5H1.75C1.55109 4.5 1.36032 4.42098 1.21967 4.28033C1.07902 4.13968 1 3.94891 1 3.75C1 3.55109 1.07902 3.36032 1.21967 3.21967C1.36032 3.07902 1.55109 3 1.75 3H4.25ZM3.62 4.5H12.38L11.646 14.038C11.6364 14.1636 11.5798 14.2809 11.4875 14.3666C11.3952 14.4522 11.2739 14.4999 11.148 14.5H4.852C4.72607 14.4999 4.60482 14.4522 4.5125 14.3666C4.42017 14.2809 4.36357 14.1636 4.354 14.038L3.62 4.5Z" fill="#E41321"/>
+                            </g>
+                        </svg>
+                        <span>Remove</span>
+                    </div>
+                    <div class="add-container-btn">       
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="ic:round-add">
+                                <path id="Vector" d="M18 13H13V18C13 18.55 12.55 19 12 19C11.45 19 11 18.55 11 18V13H6C5.45 13 5 12.55 5 12C5 11.45 5.45 11 6 11H11V6C11 5.45 11.45 5 12 5C12.55 5 13 5.45 13 6V11H18C18.55 11 19 11.45 19 12C19 12.55 18.55 13 18 13Z" fill="#303030"/>
+                            </g>
+                        </svg>    
+                        <span>Add New</span>
+                    </div>
+                </div>`;
+
+                $("#qualifications").append(new_div)
+            })
+
+            $(document).on("click", ".remove-container-btn", function(){
+                var remove_container_id = $(this).parents('.add-new-container').attr('id')
+
+                $("#"+remove_container_id).remove()
+            })
+
+            $(document).on("change", ".declaration-wrap input[type=radio]", function(){
+                var current_id = $(this).parents(".declaration-wrap").attr("id")
+                
+                if ($(this).is(':checked') && $(this).val() === 'yes') {
+                    $("#"+current_id+" .answer-yes-dec").addClass("active")
+                } else {
+                    $("#"+current_id+" .answer-yes-dec").removeClass("active")
+                }
+            });
 
             function validateForm(section_id = '') {
                 var form_id = $(".form-content.active").attr("id")
@@ -495,6 +1437,11 @@
                     if(section_id == '') {
                         $('div[section-id="'+form_id+'"]').next().addClass("active")
                         $("#"+form_id).next().addClass("active")
+
+                        if(form_id == 'declaration') {
+                            $(window).off('beforeunload');
+                            window.location.href = 'success.html';
+                        } 
                     } else {
                         $('div[section-id="'+section_id+'"]').addClass("active")
                         $("#"+section_id).addClass("active")

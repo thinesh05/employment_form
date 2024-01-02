@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Success</title>
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Poppins';
+                font-size: 14px;
+                padding: 12px 32px;
+            }
+            .success-application {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #3abc5f;
+                font-size: 24px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="success-application">
+            <dotlottie-player src="https://lottie.host/6002b177-9562-416e-8327-87d88145607b/7YtSmddpfK.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+            <span>Your application has been submitted successfully</span>
+        </div>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 5000);
+            })
+        </script>
+    </body>
+</html>
